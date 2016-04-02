@@ -9,8 +9,22 @@
 import Foundation
 import SwiftyJSON
 
-class DataModelMarkers {
-    func readLocalfileToJSON( let fileName : String ) -> JSON {
+class DataModel {
+    class func fromJSONToPlaces( jsonData : JSON ) -> [FunnyPlace]? {
+        var places = [FunnyPlace]()
+        
+        if let jsonArrayPlaces = jsonData.array {
+            for jsonPlace in jsonArrayPlaces {
+                
+                if let place = FunnyPlace.fromSwiftyJSONNetwork(jsonPlace) {
+                    places.append(place)
+                }
+            }
+        }
+        return places
+    }
+    
+    class func readJSONFileToPlaces( let fileName : String ) -> [FunnyPlace]? {
         guard let bundlefileName = NSBundle.mainBundle().pathForResource(fileName, ofType: "json") else {
             print("Filename: \(fileName) not available")
             return nil
@@ -22,6 +36,8 @@ class DataModelMarkers {
         
         let jsonData = JSON(data: data)
         
-        return jsonData
+        let places = fromJSONToPlaces( jsonData )
+        
+        return places
     }
 }

@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E668B151CB08517006602EA /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E668B141CB08517006602EA /* SwiftExtensions.swift */; };
 		7E69DEF11CB04FE400258184 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E69DEF01CB04FE400258184 /* LocationsView.swift */; };
+		7E69DEF31CB05D5F00258184 /* ServerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E69DEF21CB05D5F00258184 /* ServerRequests.swift */; };
 		7EC028FA1CAC81FB00D03859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC028F91CAC81FB00D03859 /* AppDelegate.swift */; };
 		7EC028FC1CAC81FB00D03859 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC028FB1CAC81FB00D03859 /* ViewController.swift */; };
 		7EC028FF1CAC81FB00D03859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EC028FD1CAC81FB00D03859 /* Main.storyboard */; };
@@ -15,14 +17,16 @@
 		7EC029041CAC81FB00D03859 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EC029021CAC81FB00D03859 /* LaunchScreen.storyboard */; };
 		7EC0290C1CAC888700D03859 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0290B1CAC888700D03859 /* DataModel.swift */; };
 		7EC0290E1CAC8C0200D03859 /* Toilets.json in Resources */ = {isa = PBXBuildFile; fileRef = 7EC0290D1CAC8C0200D03859 /* Toilets.json */; };
-		7EC029101CAC8C3700D03859 /* Toilet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0290F1CAC8C3700D03859 /* Toilet.swift */; };
+		7EC029101CAC8C3700D03859 /* FunnyPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0290F1CAC8C3700D03859 /* FunnyPlace.swift */; };
 		EA4F7E52DB81BD1B364DC546 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA6CE5C32EEE88685EC9E79 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4DF56A981083FE077E813DE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		627246EFD08ECE66FC7AE1C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7E668B141CB08517006602EA /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftExtensions.swift; path = ../SwiftExtensions.swift; sourceTree = "<group>"; };
 		7E69DEF01CB04FE400258184 /* LocationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
+		7E69DEF21CB05D5F00258184 /* ServerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequests.swift; sourceTree = "<group>"; };
 		7EC028F61CAC81FB00D03859 /* GooMovieMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooMovieMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC028F91CAC81FB00D03859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EC028FB1CAC81FB00D03859 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +36,7 @@
 		7EC029051CAC81FB00D03859 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EC0290B1CAC888700D03859 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7EC0290D1CAC8C0200D03859 /* Toilets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Toilets.json; path = LocalData/Toilets.json; sourceTree = "<group>"; };
-		7EC0290F1CAC8C3700D03859 /* Toilet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toilet.swift; sourceTree = "<group>"; };
+		7EC0290F1CAC8C3700D03859 /* FunnyPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnyPlace.swift; sourceTree = "<group>"; };
 		AFA6CE5C32EEE88685EC9E79 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -86,6 +90,7 @@
 		7EC028F81CAC81FB00D03859 /* GooMovieMap */ = {
 			isa = PBXGroup;
 			children = (
+				7E668B141CB08517006602EA /* SwiftExtensions.swift */,
 				7EC0290D1CAC8C0200D03859 /* Toilets.json */,
 				7EC028F91CAC81FB00D03859 /* AppDelegate.swift */,
 				7EC028FB1CAC81FB00D03859 /* ViewController.swift */,
@@ -94,8 +99,9 @@
 				7EC029021CAC81FB00D03859 /* LaunchScreen.storyboard */,
 				7EC029051CAC81FB00D03859 /* Info.plist */,
 				7EC0290B1CAC888700D03859 /* DataModel.swift */,
-				7EC0290F1CAC8C3700D03859 /* Toilet.swift */,
+				7EC0290F1CAC8C3700D03859 /* FunnyPlace.swift */,
 				7E69DEF01CB04FE400258184 /* LocationsView.swift */,
+				7E69DEF21CB05D5F00258184 /* ServerRequests.swift */,
 			);
 			path = GooMovieMap;
 			sourceTree = "<group>";
@@ -223,11 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EC029101CAC8C3700D03859 /* Toilet.swift in Sources */,
+				7EC029101CAC8C3700D03859 /* FunnyPlace.swift in Sources */,
 				7EC028FC1CAC81FB00D03859 /* ViewController.swift in Sources */,
+				7E69DEF31CB05D5F00258184 /* ServerRequests.swift in Sources */,
 				7E69DEF11CB04FE400258184 /* LocationsView.swift in Sources */,
 				7EC028FA1CAC81FB00D03859 /* AppDelegate.swift in Sources */,
 				7EC0290C1CAC888700D03859 /* DataModel.swift in Sources */,
+				7E668B151CB08517006602EA /* SwiftExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

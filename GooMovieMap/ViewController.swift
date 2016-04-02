@@ -7,29 +7,38 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
 
     @IBOutlet var locationsView: LocationsView!
     @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var descriptionText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let model = DataModelMarkers()
         
-        let jsonValue = model.readLocalfileToJSON("Toilets")
+        locationsView.handlerTapMaker = self.handlerTapMarker
         
-        if let arrayToilets = jsonValue.array {
-            for toilet in arrayToilets {
-                
-                if let toilet = Toilet.fromJSON(toilet) {
-                    locationsView.addMarker(toilet.title!, snippet: toilet.subtitle!, location: toilet.coordinate)
-                    //mapView.addAnnotation(toilet)
+        ServerRequests.requestPlaces { (places : [FunnyPlace]?) -> Void in
+            if let places = places {
+                for place in places {
+                    self.locationsView.addMarker(place.title, snippet: place.comment, location: place.coordinate,
+                        userData: place)
                 }
             }
         }
+        
     }
+    
+    func handlerTapMarker( place : AnyObject? ) -> Void {
+        if let place = place as? FunnyPlace {
+            imageView.downloadedFrom(link: place.image, contentMode: .ScaleAspectFit)
+            descriptionText.text = place.desc
+        }
+    }
+    
     
     override func prefersStatusBarHidden() -> Bool {
         return true

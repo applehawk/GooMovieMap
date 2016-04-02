@@ -1,4 +1,4 @@
-//
+ //
 //  LocationService.swift
 //  GooMovieMap
 //
@@ -6,8 +6,7 @@
 //  Copyright © 2016 Hawk. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 import GoogleMaps
 
 /*
@@ -15,6 +14,9 @@ import GoogleMaps
 Обработка нажатия на маркер для показа окошка
 Информация о месте внизу карты
 */
+ 
+ typealias HandlerTapMarker = ( AnyObject? ) -> Void
+ 
 
 class LocationsView : UIView, GMSMapViewDelegate {
     var mapView: GMSMapView!
@@ -29,10 +31,22 @@ class LocationsView : UIView, GMSMapViewDelegate {
         initSuperviewAndSubviews()
     }
     
+    var handlerTapMaker : HandlerTapMarker?
+    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
+        if let handlerTap = handlerTapMaker
+        {
+            handlerTap( marker.userData )
+        }
+        return false
+    }
+    
     func initSuperviewAndSubviews() {
         controls = UISegmentedControl(items: ["Normal", "Sattelite", "Hybrid"])
-        mapView =  GMSMapView.mapWithFrame(self.frame, camera:
+        mapView =  GMSMapView.mapWithFrame(CGRectZero, camera:
             LocationsView.makeGoogleCamera(LocationsView.moscow))
+        
+        mapView.settings.compassButton = true
+        mapView.settings.myLocationButton = true
         mapView.delegate = self
         
         self.addSubview(mapView)
@@ -59,13 +73,9 @@ class LocationsView : UIView, GMSMapViewDelegate {
         initSuperviewAndSubviews()
     }
     
-    func didTapMarker( mapsView : GMSMapView, marker : GMSMarker) {
-        print("Tap Marker")
-    }
-    
     func updateContraints() {
         print("updateContraints:")
-        print("Before Constraints: \(self.constraints)")
+        //print("Before Constraints: \(self.constraints)")
         
         var allConstraints = [NSLayoutConstraint]()
         let viewsDict = [
@@ -99,7 +109,7 @@ class LocationsView : UIView, GMSMapViewDelegate {
         
         self.addConstraints(allConstraints)
         
-        print("After Constraints: \(self.constraints)")
+        //print("After Constraints: \(self.constraints)")
         
         
         super.updateConstraints()
@@ -125,14 +135,15 @@ class LocationsView : UIView, GMSMapViewDelegate {
         return camera
     }
     
-    func addMarker( title: String, snippet: String, location : CLLocationCoordinate2D ) {
+    func addMarker( title: String, snippet: String, location : CLLocationCoordinate2D, userData : AnyObject? ) {
         let marker = GMSMarker()
         marker.position = location
         marker.title = title
         marker.snippet = snippet
         marker.appearAnimation = kGMSMarkerAnimationPop
+        marker.userData = userData
+        //marker.tappable = true
+        
         marker.map = mapView
-        
-        
     }
 }
