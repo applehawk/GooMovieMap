@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200A48B9FCBF8803C211CCCC /* Pods_GooMovieMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568E99CBE7BFBF900867CDDC /* Pods_GooMovieMap.framework */; };
 		7E668B151CB08517006602EA /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E668B141CB08517006602EA /* SwiftExtensions.swift */; };
 		7E69DEF11CB04FE400258184 /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E69DEF01CB04FE400258184 /* LocationsView.swift */; };
 		7E69DEF31CB05D5F00258184 /* ServerRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E69DEF21CB05D5F00258184 /* ServerRequests.swift */; };
@@ -18,12 +19,11 @@
 		7EC0290C1CAC888700D03859 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0290B1CAC888700D03859 /* DataModel.swift */; };
 		7EC0290E1CAC8C0200D03859 /* Toilets.json in Resources */ = {isa = PBXBuildFile; fileRef = 7EC0290D1CAC8C0200D03859 /* Toilets.json */; };
 		7EC029101CAC8C3700D03859 /* FunnyPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0290F1CAC8C3700D03859 /* FunnyPlace.swift */; };
-		EA4F7E52DB81BD1B364DC546 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA6CE5C32EEE88685EC9E79 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4DF56A981083FE077E813DE2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		627246EFD08ECE66FC7AE1C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		568E99CBE7BFBF900867CDDC /* Pods_GooMovieMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GooMovieMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71198C07E19E5706AED5D49B /* Pods-GooMovieMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GooMovieMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GooMovieMap/Pods-GooMovieMap.debug.xcconfig"; sourceTree = "<group>"; };
 		7E668B141CB08517006602EA /* SwiftExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftExtensions.swift; path = ../SwiftExtensions.swift; sourceTree = "<group>"; };
 		7E69DEF01CB04FE400258184 /* LocationsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		7E69DEF21CB05D5F00258184 /* ServerRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequests.swift; sourceTree = "<group>"; };
@@ -37,6 +37,7 @@
 		7EC0290B1CAC888700D03859 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		7EC0290D1CAC8C0200D03859 /* Toilets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Toilets.json; path = LocalData/Toilets.json; sourceTree = "<group>"; };
 		7EC0290F1CAC8C3700D03859 /* FunnyPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FunnyPlace.swift; sourceTree = "<group>"; };
+		854A4982240D35FB466611BD /* Pods-GooMovieMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GooMovieMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-GooMovieMap/Pods-GooMovieMap.release.xcconfig"; sourceTree = "<group>"; };
 		AFA6CE5C32EEE88685EC9E79 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -45,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA4F7E52DB81BD1B364DC546 /* Pods.framework in Frameworks */,
+				200A48B9FCBF8803C211CCCC /* Pods_GooMovieMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +57,16 @@
 			isa = PBXGroup;
 			children = (
 				AFA6CE5C32EEE88685EC9E79 /* Pods.framework */,
+				568E99CBE7BFBF900867CDDC /* Pods_GooMovieMap.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6AB33FF79915BA55D831EF85 /* Pods */ = {
+		58F1B894B6233E5255E499EF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				627246EFD08ECE66FC7AE1C8 /* Pods.debug.xcconfig */,
-				4DF56A981083FE077E813DE2 /* Pods.release.xcconfig */,
+				71198C07E19E5706AED5D49B /* Pods-GooMovieMap.debug.xcconfig */,
+				854A4982240D35FB466611BD /* Pods-GooMovieMap.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -74,8 +76,8 @@
 			children = (
 				7EC028F81CAC81FB00D03859 /* GooMovieMap */,
 				7EC028F71CAC81FB00D03859 /* Products */,
-				6AB33FF79915BA55D831EF85 /* Pods */,
 				4C724BA24482E4CD81D01B4D /* Frameworks */,
+				58F1B894B6233E5255E499EF /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,12 +115,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EC029081CAC81FB00D03859 /* Build configuration list for PBXNativeTarget "GooMovieMap" */;
 			buildPhases = (
-				D3C0362CB2BB37F9D3401FF2 /* Check Pods Manifest.lock */,
+				AD168CCEFEE1FDDD1F7BEEF1 /* Check Pods Manifest.lock */,
 				7EC028F21CAC81FB00D03859 /* Sources */,
 				7EC028F31CAC81FB00D03859 /* Frameworks */,
 				7EC028F41CAC81FB00D03859 /* Resources */,
-				7D90DB5AE5008F63F743E22D /* Embed Pods Frameworks */,
-				C13CE41A55D51F2CEB0458B0 /* Copy Pods Resources */,
+				B31FD71E7ABB3C562EE6CC37 /* Embed Pods Frameworks */,
+				A172F958C797B0665D6FDC0E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -141,6 +143,7 @@
 				TargetAttributes = {
 					7EC028F51CAC81FB00D03859 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 936AH6YV4Q;
 					};
 				};
 			};
@@ -177,22 +180,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7D90DB5AE5008F63F743E22D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C13CE41A55D51F2CEB0458B0 /* Copy Pods Resources */ = {
+		A172F958C797B0665D6FDC0E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,10 +192,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GooMovieMap/Pods-GooMovieMap-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D3C0362CB2BB37F9D3401FF2 /* Check Pods Manifest.lock */ = {
+		AD168CCEFEE1FDDD1F7BEEF1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -220,6 +208,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B31FD71E7ABB3C562EE6CC37 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GooMovieMap/Pods-GooMovieMap-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -346,9 +349,10 @@
 		};
 		7EC029091CAC81FB00D03859 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 627246EFD08ECE66FC7AE1C8 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 71198C07E19E5706AED5D49B /* Pods-GooMovieMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GooMovieMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VladSkipper.GooMovieMap;
@@ -358,9 +362,11 @@
 		};
 		7EC0290A1CAC81FB00D03859 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DF56A981083FE077E813DE2 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 854A4982240D35FB466611BD /* Pods-GooMovieMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = GooMovieMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VladSkipper.GooMovieMap;

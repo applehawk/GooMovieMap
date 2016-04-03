@@ -15,8 +15,8 @@ import GoogleMaps
 Информация о месте внизу карты
 */
  
- typealias HandlerTapMarker = ( AnyObject? ) -> Void
- 
+typealias HandlerTapMarker = ( AnyObject? ) -> Void
+typealias HandlerTapCoordinate = ( coordinate : CLLocationCoordinate2D ) -> Void
 
 class LocationsView : UIView, GMSMapViewDelegate {
     var mapView: GMSMapView!
@@ -38,6 +38,13 @@ class LocationsView : UIView, GMSMapViewDelegate {
             handlerTap( marker.userData )
         }
         return false
+    }
+    
+    var handlerTapCoordinate : HandlerTapCoordinate?
+    func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+        if let handler = handlerTapCoordinate {
+           handler( coordinate: coordinate )
+        }
     }
     
     func initSuperviewAndSubviews() {
