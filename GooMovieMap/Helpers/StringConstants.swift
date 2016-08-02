@@ -7,6 +7,6 @@
 //
 
 
-enum MyMaps {
-    static let ps4Link = "http://www.google.com/maps/d/kml?forcekml=1&mid=1etOY__36A3eL47MRiE-gOCczF9M&lid=CLrURM2Sr_Y"
+enum GMConstants {
+    static let MyMapsPS4 = "http://www.google.com/maps/d/kml?forcekml=1&mid=1etOY__36A3eL47MRiE-gOCczF9M&lid=CLrURM2Sr_Y"
 }

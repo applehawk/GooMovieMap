@@ -10,33 +10,41 @@ import CoreLocation
 import CoreFoundation
 
 
-class MapsPlace: NSObject {
-    let descr: String
-    let coordinate: CLLocationCoordinate2D
-    let images:[String]
-    
-    init(let descr:String, let coord:CLLocationCoordinate2D, images:[String]) {
-        self.descr = descr
-        self.coordinate = coord
-        self.images = images
-    }
+class GMPlacemark: NSObject {
+    var title: String!
+    var descr: String!
+    var location: CLLocationCoordinate2D!
+    var snippet: String!
 }
 
-class MapsPlacesFabric {
+class GMPlacemarksFabric {
     
-    func generateMapsPlacesFromKML(kmlString : String) -> [MapsPlace]? {
-        
-        let kmlUrl = NSURL(string: "http://www.google.com/maps/d/kml?forcekml=1&mid=1etOY__36A3eL47MRiE-gOCczF9M&lid=CLrURM2Sr_Y");
-        
-        let kmlRoot = KMLParser.parseKMLAtURL(kmlUrl);
+    func generatePlacemarks(kmlUrlString : String) -> [GMPlacemark] {
+        let kmlRoot = KMLParser.parseKMLAtURL(NSURL(string: kmlUrlString));
         
         let kmlPlacemarks:NSArray = kmlRoot.placemarks();
         
-        for placemark in kmlPlacemarks {
-            let kmlPlacemark : KMLPlacemark? = placemark as! KMLPlacemark;
-            print("Placemark \(kmlPlacemark?.descriptionValue)");
+        var placemarks = [GMPlacemark]()
+        for kmlPlacemark in kmlPlacemarks as! [KMLPlacemark] {
+            if let point = kmlPlacemark.geometry as? KMLPoint {
+                let placemark = GMPlacemark();
+                
+                let latitude = (CLLocationDegrees)(point.coordinate.latitude)
+                let longitude = (CLLocationDegrees)(point.coordinate.longitude)
+                let snippet = kmlPlacemark.snippet
+                let title = kmlPlacemark.name
+                
+                placemark.location =
+                    CLLocationCoordinate2D(latitude: latitude,
+                                           longitude: longitude)
+                
+                placemark.descr = kmlPlacemark.descriptionValue
+                placemark.snippet = snippet
+                placemark.title = title
+                placemarks.append(placemark);
+            }
         }
         
-        return nil;
+        return placemarks;
     }
 }
