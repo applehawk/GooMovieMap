@@ -10,7 +10,6 @@
 		7E5F54831D4FE649001D8175 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F54821D4FE649001D8175 /* StringConstants.swift */; };
 		7E5F54851D4FE6D7001D8175 /* MapsPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5F54841D4FE6D7001D8175 /* MapsPlace.swift */; };
 		7E5F54881D4FE8E8001D8175 /* PS4MyMapsStub.kml in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F54871D4FE8E8001D8175 /* PS4MyMapsStub.kml */; };
-		7E5F54961D51347E001D8175 /* ps4icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E5F54951D51347E001D8175 /* ps4icon.png */; };
 		7EC028FA1CAC81FB00D03859 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC028F91CAC81FB00D03859 /* AppDelegate.swift */; };
 		7EC028FF1CAC81FB00D03859 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EC028FD1CAC81FB00D03859 /* Main.storyboard */; };
 		7EC029011CAC81FB00D03859 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EC029001CAC81FB00D03859 /* Assets.xcassets */; };
@@ -30,7 +29,6 @@
 		7E5F54841D4FE6D7001D8175 /* MapsPlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsPlace.swift; sourceTree = "<group>"; };
 		7E5F54871D4FE8E8001D8175 /* PS4MyMapsStub.kml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PS4MyMapsStub.kml; path = Resources/PS4MyMapsStub.kml; sourceTree = "<group>"; };
 		7E5F548D1D4FF3CD001D8175 /* GooMovieMap-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GooMovieMap-Bridging-Header.h"; sourceTree = "<group>"; };
-		7E5F54951D51347E001D8175 /* ps4icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ps4icon.png; path = Resources/ps4icon.png; sourceTree = "<group>"; };
 		7EC028F61CAC81FB00D03859 /* GooMovieMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GooMovieMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EC028F91CAC81FB00D03859 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EC028FE1CAC81FB00D03859 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 		7E5F54861D4FE898001D8175 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7E5F54951D51347E001D8175 /* ps4icon.png */,
 				7E5F54871D4FE8E8001D8175 /* PS4MyMapsStub.kml */,
 			);
 			name = Resources;
@@ -223,7 +220,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E5F54961D51347E001D8175 /* ps4icon.png in Resources */,
 				7EC029041CAC81FB00D03859 /* LaunchScreen.storyboard in Resources */,
 				7EC029011CAC81FB00D03859 /* Assets.xcassets in Resources */,
 				7EC028FF1CAC81FB00D03859 /* Main.storyboard in Resources */,
@@ -428,12 +424,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = GooMovieMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = VladSkipper.GooMovieMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "GooMovieMap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Release;
 		};

@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LocationsViewProtocol {
     @IBOutlet weak var imageView: UIImageView!
 
     var placemarks : [GMPlacemark]!
@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationsView.handlerTapMaker = self.handlerTapMarker
-        locationsView.handlerTapCoordinate = self.handlerTapCoordinate
+        locationsView.delegate = self
         
         heightConstraintLocationsView.constant = self.view.frame.size.height
         expandedHeight = heightConstraintLocationsView.constant
@@ -43,37 +42,29 @@ class ViewController: UIViewController {
         self.placemarks = fabric.generatePlacemarks( GMConstants.MyMapsPS4 );
         
         for placemark in placemarks {
+            var snippet = ""
+            if(placemark.snippet != nil) {
+                snippet = placemark.snippet
+            }
             locationsView.addMarker(
-                placemark.descr,
-                snippet: "",
+                placemark.title,
+                snippet: snippet,
                 location: placemark.location,
                 userData: placemark)
         }
     }
     
     func handlerTapCoordinate( coordinate : CLLocationCoordinate2D ) {
-        self.view.layoutIfNeeded()
-        UIView.animateWithDuration(1.0) { () in
-            if let height = self.expandedHeight {
-                self.heightConstraintLocationsView.constant = height
-            }
-            self.view.layoutIfNeeded()
-        }
     }
     
     func handlerTapMarker(placemark : GMPlacemark?) {
-        /*
-        if let place = place as? FunnyPlace {
-            imageView.downloadedFrom(link: place.image, contentMode: .ScaleAspectFit)
-            descriptionText.text = place.desc
-            
-            self.view.layoutIfNeeded()
-            UIView.animateWithDuration(1.0) { () in
-                self.heightConstraintLocationsView.constant = self.constrictHeight
-                self.view.layoutIfNeeded()
-            }
-            
-        }*/
+        if let firstImage = placemark?.imageUrls.first as String?
+        {
+            imageView.downloadedFrom(
+                link : firstImage,
+                contentMode : UIViewContentMode.ScaleAspectFit)
+        }
+        descriptionText.text = placemark?.descr
     }
     
     override func prefersStatusBarHidden() -> Bool {

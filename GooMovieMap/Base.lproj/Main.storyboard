@@ -1,12 +1,91 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XD7-wE-uMp">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--searchBarController-->
+        <scene sceneID="tDR-Ka-dc7">
+            <objects>
+                <viewController title="searchBarController" id="slH-Uc-Asr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m0r-k4-n1o"/>
+                        <viewControllerLayoutGuide type="bottom" id="Z2R-fY-rWL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ERf-Ec-9HC">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="CnC-iN-9yc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CnC-iN-9yc" firstAttribute="trailing" secondItem="ERf-Ec-9HC" secondAttribute="trailing" id="6h4-jw-Xhn"/>
+                            <constraint firstItem="CnC-iN-9yc" firstAttribute="leading" secondItem="ERf-Ec-9HC" secondAttribute="leading" id="VRt-mG-8Bb"/>
+                            <constraint firstItem="CnC-iN-9yc" firstAttribute="top" secondItem="m0r-k4-n1o" secondAttribute="bottom" id="Vx6-Gb-1l5"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="CnC-iN-9yc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6h4-jw-Xhn"/>
+                                <exclude reference="VRt-mG-8Bb"/>
+                                <exclude reference="Vx6-Gb-1l5"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="CnC-iN-9yc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6h4-jw-Xhn"/>
+                                <include reference="VRt-mG-8Bb"/>
+                                <include reference="Vx6-Gb-1l5"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Поиск" image="searchicon" id="uk9-qH-b57"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="jWJ-eJ-sdR" id="E3j-cA-dyO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i48-JU-pbL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jWJ-eJ-sdR">
+                    <connections>
+                        <outlet property="delegate" destination="slH-Uc-Asr" id="ym2-vH-EXi"/>
+                        <outlet property="searchBar" destination="CnC-iN-9yc" id="AOk-Lz-i46"/>
+                        <outlet property="searchContentsController" destination="slH-Uc-Asr" id="Ksp-Yk-DYD"/>
+                        <outlet property="searchResultsDataSource" destination="slH-Uc-Asr" id="ebK-a0-CEc"/>
+                        <outlet property="searchResultsDelegate" destination="slH-Uc-Asr" id="gfy-l4-Ja2"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="402" y="-360"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KWM-6B-0Vs">
+            <objects>
+                <tabBarController id="XD7-wE-uMp" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="vug-Ok-OA8">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="VRi-Py-Pwh"/>
+                        <segue destination="slH-Uc-Asr" kind="relationship" relationship="viewControllers" id="ehF-WF-RvD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pw9-dI-VyY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="-636.75"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -151,7 +230,8 @@
                                         <exclude reference="TCf-eN-us2"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="780"/>
                                     <mask key="subviews">
                                         <include reference="qNB-pt-Mtb"/>
                                         <include reference="FUB-dh-QTQ"/>
@@ -205,6 +285,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="mapsIcon" id="L9s-GB-s5C"/>
                     <connections>
                         <outlet property="descriptionText" destination="FUB-dh-QTQ" id="RsX-Ch-8rd"/>
                         <outlet property="heightConstraintLocationsView" destination="8NJ-al-pfQ" id="GPj-Bl-w6G"/>
@@ -216,7 +297,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="270" y="209.25"/>
+            <point key="canvasLocation" x="423" y="-1049.25"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mapsIcon" width="22" height="22"/>
+        <image name="searchicon" width="18" height="18"/>
+    </resources>
 </document>

@@ -15,12 +15,15 @@ import GoogleMaps
 Информация о месте внизу карты
 */
  
-typealias HandlerTapMarker = ( GMPlacemark? ) -> Void
-typealias HandlerTapCoordinate = ( coordinate : CLLocationCoordinate2D ) -> Void
-
+ protocol LocationsViewProtocol {
+    func handlerTapMarker( placemark: GMPlacemark? )
+    func handlerTapCoordinate (coordinate : CLLocationCoordinate2D)
+ }
+ 
 class LocationsView : UIView, GMSMapViewDelegate {
     var mapView: GMSMapView!
     var controls: UISegmentedControl?
+    var delegate: LocationsViewProtocol?
     
     static let honolulu = CLLocation(latitude: 21.282778, longitude: -157.829444)
     static let moscow = CLLocation(latitude: 55.6976543, longitude: 37.6599371)
@@ -31,26 +34,25 @@ class LocationsView : UIView, GMSMapViewDelegate {
         initSuperviewAndSubviews()
     }
     
-    var handlerTapMaker : HandlerTapMarker?
+    //var handlerTapMaker : HandlerTapMarker?
     func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
-        if let handlerTap = handlerTapMaker
-        {
+        if let delegate = delegate {
             if let placemark = marker.userData as? GMPlacemark {
-                handlerTap(placemark)
+                delegate.handlerTapMarker(placemark)
             }
         }
         return false
     }
     
-    var handlerTapCoordinate : HandlerTapCoordinate?
+    //var handlerTapCoordinate : HandlerTapCoordinate?
     func mapView(mapView: GMSMapView, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
-        if let handler = handlerTapCoordinate {
-           handler( coordinate: coordinate )
+        if let delegate = delegate {
+            delegate.handlerTapCoordinate( coordinate )
         }
     }
     
     func initSuperviewAndSubviews() {
-        controls = UISegmentedControl(items: ["Normal", "Sattelite", "Hybrid"])
+        //controls = UISegmentedControl(items: ["Normal", "Sattelite", "Hybrid"])
         mapView =  GMSMapView.mapWithFrame(CGRectZero, camera:
             LocationsView.makeGoogleCamera(LocationsView.moscow))
         
@@ -87,10 +89,9 @@ class LocationsView : UIView, GMSMapViewDelegate {
         //print("Before Constraints: \(self.constraints)")
         
         var allConstraints = [NSLayoutConstraint]()
-        let viewsDict = [
+        var viewsDict = [
             "mapview" : mapView,
-            "superview" : self,
-            "controls" : controls!
+            "superview" : self
         ]
         
         allConstraints += NSLayoutConstraint.constraintsWithVisualFormat(
@@ -104,18 +105,21 @@ class LocationsView : UIView, GMSMapViewDelegate {
             metrics: nil,
             views: viewsDict)
         
-        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:|-10-[controls]",
-            options: [],
-            metrics: nil,
-            views: viewsDict)
+        if (self.controls != nil) {
+            viewsDict["controls"] = controls
         
-        allConstraints += NSLayoutConstraint.constraintsWithVisualFormat(
-            "V:[mapview]-(<=1)-[controls]",
-            options: [.AlignAllCenterX],
-            metrics: nil,
-            views: viewsDict)
-        
+            allConstraints += NSLayoutConstraint.constraintsWithVisualFormat(
+                "V:|-10-[controls]",
+                options: [],
+                metrics: nil,
+                views: viewsDict)
+            
+            allConstraints += NSLayoutConstraint.constraintsWithVisualFormat(
+                "V:[mapview]-(<=1)-[controls]",
+                options: [.AlignAllCenterX],
+                metrics: nil,
+                views: viewsDict)
+        }
         self.addConstraints(allConstraints)
         
         //print("After Constraints: \(self.constraints)")

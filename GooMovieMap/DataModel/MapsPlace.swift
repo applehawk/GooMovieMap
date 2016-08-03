@@ -15,6 +15,7 @@ class GMPlacemark: NSObject {
     var descr: String!
     var location: CLLocationCoordinate2D!
     var snippet: String!
+    var imageUrls: [String]!
 }
 
 class GMPlacemarksFabric {
@@ -41,6 +42,15 @@ class GMPlacemarksFabric {
                 placemark.descr = kmlPlacemark.descriptionValue
                 placemark.snippet = snippet
                 placemark.title = title
+                
+                var imagesUrls = [String]()
+                for data in (kmlPlacemark.extendedData.dataList as! [KMLData]) {
+                    var separatedUrls = data.value.componentsSeparatedByString(" ")
+                    for stringUrl in separatedUrls {
+                        imagesUrls.append(stringUrl)
+                    }
+                }
+                placemark.imageUrls = imagesUrls
                 placemarks.append(placemark);
             }
         }
